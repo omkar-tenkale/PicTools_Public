@@ -26,6 +26,7 @@
     var deviceId = new URLSearchParams(window.location.search).get("deviceId");
     var isPremium = new URLSearchParams(window.location.search).get("premiumUser");
     if(isPremium){window.$chatwoot.setLabel('premium-user');}
+    window.$chatwoot.setLabel('premium-user');
     document.getElementById("openChat").text  = "Chat now";
 //     window.$chatwoot.setUser(new URLSearchParams(window.location.search).get("deviceId"), {
 //   email: '<email-address-of-the-user@your-domain.com>',
