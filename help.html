@@ -24,9 +24,7 @@
 
   window.addEventListener('chatwoot:ready', function () {
     var deviceId = new URLSearchParams(window.location.search).get("deviceId");
-    var isPremium = new URLSearchParams(window.location.search).get("premiumUser");
-    if(isPremium){window.$chatwoot.setLabel("premium");}
-    window.$chatwoot.setLabel("premium");
+
     document.getElementById("openChat").text  = "Chat now";
 //     window.$chatwoot.setUser(new URLSearchParams(window.location.search).get("deviceId"), {
 //   email: '<email-address-of-the-user@your-domain.com>',
@@ -35,12 +33,13 @@
 //   phone_number: '<phone-number-of-the-user>',
 // });
 var deviceIdAsMail = deviceId+"@pictools.deviceid"
-window.$chatwoot.setLabel("premium");
 window.$chatwoot.setUser(deviceId, {
     email: deviceIdAsMail,
     avatar_url: '',
 });
-    window.$chatwoot.setCustomAttributes({  pricingPlan: 'paid'});
+        var plan = new URLSearchParams(window.location.search).get("pricingPlan");
+        window.$chatwoot.setLabel("premium");
+    window.$chatwoot.setCustomAttributes({  pricingPlan: plan});
 });
 })(document,"script");
 
