@@ -38,7 +38,9 @@ window.$chatwoot.setUser(deviceId, {
     avatar_url: '',
 });
         var plan = new URLSearchParams(window.location.search).get("pricingPlan");
+    if(plan==="premium"){
         window.$chatwoot.setLabel("premium");
+    }
     window.$chatwoot.setCustomAttributes({  pricingPlan: plan});
 });
 })(document,"script");
